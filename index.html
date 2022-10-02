@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sticky test</title>
+  </head>
+  <body>
+    <sticky-wrapper>
+      <h1>Hello world</h1>
+      <sticky-header id="header1">
+        <div id="sticky1" style="height: 50px; background-color: blue">
+          I am sticky
+        </div>
+      </sticky-header>
+      <h2>More header</h2>
+      <sticky-header id="header2">
+        <div id="sticky2" style="height: 100px; background-color: yellow">
+          Sticky too
+        </div>
+      </sticky-header>
+      <h3>Even more content</h3>
+      <sticky-header id="header3">
+        <div id="sticky3" style="height: 100px; background-color: pink">
+          ALso nr 3
+        </div>
+      </sticky-header>
+      <h3>A table with a sticky header</h3>
+      <table>
+        <thead>
+          <tr>
+            <th style="background: cyan">
+              <sticky-table-header>A</sticky-table-header>
+            </th>
+            <th style="background: cyan">
+              <sticky-table-header>B</sticky-table-header>
+            </th>
+            <th style="background: cyan">
+              <sticky-table-header>C</sticky-table-header>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>D</td>
+            <td>E</td>
+            <td>F</td>
+          </tr>
+          <tr>
+            <td>G</td>
+            <td>H</td>
+            <td>I</td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- </sticky-header-table> -->
+      Foobar
+      <h3>Content after the table</h3>
+      <sticky-header id="header3">
+        <div id="sticky4" style="height: 130px; background-color: papayawhip">
+          Number 4
+        </div>
+      </sticky-header>
+      <div style="height: 120vh">
+        <p>Tall container</p>
+        <div
+          id="focus-me"
+          style="width: 100px; height: 100px; background: green"
+        >
+          Scroll me into view
+        </div>
+      </div>
+      <h3>This is the bottom</h3>
+      <p>Thank you.</p>
+    </sticky-wrapper>
+
+    <script type="module" src="./index.js"></script>
+    <script>
+      // This code just resizes the sticky headers to make sure that the updated DOM
+      // still works (positions recalculated correctly, CSS updated etc.)
+      /*
+    setInterval(() => {
+
+      document.getElementById('sticky1').style.height = Math.random() * 200 + 'px';
+      document.getElementById('sticky2').style.height = Math.random() * 200 + 'px';
+      document.getElementById('sticky3').style.height = Math.random() * 200 + 'px';
+      document.getElementById('sticky4').style.height = Math.random() * 200 + 'px';
+
+      setTimeout(() => {
+        console.log('SCROLL INTO VIEW!'),
+        document.getElementById('focus-me').scrollIntoView();
+      }, 1000);
+
+    }, 5000);
+    */
+    </script>
+
+    <script>
+      document.addEventListener("sticky-header-connected", (ev) =>
+        console.log("listener in index.html")
+      );
+    </script>
+  </body>
+</html>
